@@ -1,24 +1,11 @@
-/* author: Yevsiukova L.
-Завдання 2. Підготовка даних для побудови звітів у BI системах.
-Створи запит для отримання таблиці з інформацією про події, користувачів та сесії в GA4.
-В результаті виконання запиту ми маємо отримати таблицю, що міститиме  поля:
-•	event_timestamp — дата та час події (тип даних має бути timestamp)
-•	user_pseudo_id — анонімний ідентифікатор користувача в GA4
-•	session_id — ідентифікатор сесії подій в GA4
-•	event_name — назва події
-•	country — країна користувача сайту
-•	device_category — категорія пристрою користувача сайту
-•	source — джерело відвідування сайту
-•	medium — medium відвідування сайту
-•	campaign — назва кампанії відвідування сайту
-Таблиця має включати лише дані за 2021 рік і таких подій:
-•	Початок сесії на сайті
-•	Перегляд товару
-•	Додавання товару до корзини
-•	Подія початку оформлення замовлення
-•	Додавання інформації про доставку
-•	Додавання платіжної інформації
-•	Покупка*/
+/*
+  Author: Larysa Yevsiukova
+  Project: E-commerce GA4 Data Pipeline
+  Script: 01_bi_raw_events_prep.sql
+  Database/Source: BigQuery Public Dataset (GA4 E-commerce)
+  Description: Extracts and cleans raw GA4 event-level data (2021) to prepare 
+               a structured staging dataset for BI systems (Power BI / Tableau).
+*/
 
 WITH base AS (
   SELECT 
