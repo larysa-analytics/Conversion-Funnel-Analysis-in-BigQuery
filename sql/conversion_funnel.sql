@@ -1,19 +1,9 @@
-/* author: Yevsiukova L.
-Розрахунок конверсій в розрізі дат та каналів трафіку
-Опис завдання:
-Створи запит для отримання таблиці з інформацією про конверсії від початку сесії до покупки. Таблиця з результатами має містити такі поля:
-•	event_date — дата старту сесії, що отримана з поля event_timestamp
-•	source — джерело відвідування сайту
-•	medium — medium відвідування сайту
-•	campaign — назва кампанії відвідування сайту
-•	user_sessions_count — кількість унікальних сесій в унікальних користувачів у відповідну дату та для відповідного каналу трафіку.
-•	visit_to_cart — конверсія від початку сесії на сайті до додавання товару в корзину (у відповідну дату та для відповідного каналу трафіку)
-•	visit_to_checkout — конверсія від початку сесії на сайті до спроби оформити замовлення (у відповідну дату та для відповідного каналу трафіку)
-•	Visit_to_purchase — конверсія від початку сесії на сайті до покупки (у відповідну дату та для відповідного каналу трафіку)
-Примітка :різні користувачі можуть мати однакові ідентифікатори сесій, тому щоб порахувати унікальні сесії унікальних користувачів, треба враховувати не тільки ідентифікатор сесії, а й ідентифікатор користувача.*/
-
-WITH base AS (
-  SELECT
+/*
+  Author: Larysa Yevsiukova
+  Project: E-commerce Conversion Funnel Analysis
+  Description: SQL query in BigQuery to calculate step-by-step conversion rates 
+  from session start to purchase, segmented by date and traffic acquisition channels.
+*/
     TIMESTAMP_MICROS(event_timestamp) AS event_timestamp,
     user_pseudo_id ||
     CAST((SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'ga_session_id') AS string) as user_session_id,
