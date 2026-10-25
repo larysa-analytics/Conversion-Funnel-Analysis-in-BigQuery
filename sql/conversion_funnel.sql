@@ -1,7 +1,8 @@
 /*
   Author: Larysa Yevsiukova
   Project: E-commerce Conversion Funnel Analysis
-  Description: SQL query in BigQuery to calculate step-by-step conversion rates 
+  Database/Source: BigQuery Public Dataset (GA4 E-commerce)
+  Description: SQL query to calculate step-by-step conversion rates 
   from session start to purchase, segmented by date and traffic acquisition channels.
 */
     TIMESTAMP_MICROS(event_timestamp) AS event_timestamp,
