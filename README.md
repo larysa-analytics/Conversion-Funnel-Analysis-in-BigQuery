@@ -1,4 +1,4 @@
-# E-commerce GA4 Data Pipeline & Conversion Funnel Analysis (BigQuery)
+# E-Commerce GA4 Funnel & Web Analytics (SQL / BigQuery)
 
 **End-to-End Data Preparation for BI & Sales Conversion Analysis using BigQuery SQL**
 
